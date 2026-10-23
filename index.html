@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fire Span - a FIRE survival tycoon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Fire Span</h1>
+<p class="tag">A retirement survival tycoon in 30 shuffled years. Pick a withdrawal rate, steer the allocation, and find out whether your plan dies to bad luck at the wrong time or outlives the deck.</p>
+
+<section id="setup">
+<h2>Plan setup</h2>
+<div class="row"><label>Starting portfolio ($)</label><input id="start" type="number" value="1000000" min="100000" step="50000"></div>
+<div class="row"><label>Yearly withdrawal (% of starting balance)</label>
+<select id="wr">
+<option value="0.03">3.0%</option>
+<option value="0.035">3.5%</option>
+<option value="0.04" selected>4.0%</option>
+<option value="0.045">4.5%</option>
+<option value="0.05">5.0%</option>
+<option value="0.06">6.0%</option>
+</select></div>
+<button id="begin">Begin retirement</button>
+</section>
+
+<section id="play" hidden>
+<div id="statusbar">
+<span id="yearlab"></span>
+<span id="ballab"></span>
+</div>
+<p id="drawhist"></p>
+<div class="row"><label>Allocation for this year</label>
+<select id="alloc">
+<option value="stocks">100% stock deck</option>
+<option value="fifty" selected>50/50 deck</option>
+</select></div>
+<div class="moves">
+<button id="draw">Draw the year</button>
+<button id="work">Part-time year (3 max): skip withdrawal, add $20,000</button>
+</div>
+<p id="yeartable"></p>
+</section>
+
+<section id="end" hidden>
+<div id="verdict"></div>
+<p id="summary"></p>
+</section>
+
+<section class="about">
+<h2>Why order beats average</h2>
+<p>The deck is the market. Both allocations average a positive year, but the cards arrive shuffled, and the same set of returns in a different order produces a different retirement. Two big down years in the first five, with withdrawals coming out the whole time, can end a plan that would have sailed through the identical years in a different sequence.</p>
+<p>The 4% withdrawal figure traces to William Bengen's 1994 study of 30-year retirements, and the 1998 Trinity study found 4 to 5 percent survived most 30-year stretches of US stock and bond history. Both are averages across history, not promises for your order: <a href="https://en.wikipedia.org/wiki/William_Bengen">Bengen's study</a>, <a href="https://en.wikipedia.org/wiki/Trinity_study">the Trinity study</a>.</p>
+<p>Fire Span is the playable version of the sequence-risk math behind <a href="https://firenomics.com">Firenomics</a>: withdrawal rates are survival questions, not round numbers.</p>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
